@@ -2,13 +2,15 @@ package main
 
 import (
 	"fmt"
+	"math"
 )
 
 func main() {
 	// FizzBuzz()
 	// Reverse("こんにちは")
-	list := []int{-40, 6, 9, 50}
-	fmt.Println(MinNumber(list))
+	// list := []int{-40, 6, 9, 50}
+	// fmt.Println(MinNumber(list))
+	fmt.Println(CountDigit(1000))
 }
 
 func FizzBuzz() {
@@ -48,4 +50,11 @@ func MinNumber(list []int) (int, error) {
 		}
 	}
 	return min, nil
+}
+
+func CountDigit(num int) int {
+	if num == 0 {
+		return 1
+	}
+	return int(math.Log10(float64(num))) + 1
 }
