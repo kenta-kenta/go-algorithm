@@ -10,7 +10,8 @@ func main() {
 	// Reverse("こんにちは")
 	// list := []int{-40, 6, 9, 50}
 	// fmt.Println(MinNumber(list))
-	fmt.Println(CountDigit(1000))
+	// fmt.Println(CountDigit(1000))
+	fmt.Println(MergeArray([]int{1, 3, 2, 4}, []int{2, 5, 1, 8}))
 }
 
 func FizzBuzz() {
@@ -57,4 +58,11 @@ func CountDigit(num int) int {
 		return 1
 	}
 	return int(math.Log10(float64(num))) + 1
+}
+
+func MergeArray(first, second []int) []int {
+	arr := make([]int, 0, len(first)+len(second))
+	arr = append(arr, first...)
+	arr = append(arr, second...)
+	return arr
 }
