@@ -12,6 +12,7 @@ func main() {
 	// fmt.Println(MinNumber(list))
 	// fmt.Println(CountDigit(1000))
 	fmt.Println(MergeArray([]int{1, 3, 2, 4}, []int{2, 5, 1, 8}))
+	fmt.Println(Average([]int{1, 2}))
 }
 
 func FizzBuzz() {
@@ -65,4 +66,15 @@ func MergeArray(first, second []int) []int {
 	arr = append(arr, first...)
 	arr = append(arr, second...)
 	return arr
+}
+
+func Average(list []int) (float64, error) {
+	if len(list) == 0 {
+		return 0, fmt.Errorf("リストに数値が入っていません")
+	}
+	sum := 0
+	for _, num := range list {
+		sum += num
+	}
+	return float64(sum) / float64(len(list)), nil
 }
