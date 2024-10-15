@@ -2,13 +2,19 @@ package main
 
 import (
 	"fmt"
+	"math"
 )
 
 func main() {
 	// FizzBuzz()
 	// Reverse("こんにちは")
-	list := []int{-40, 6, 9, 50}
-	fmt.Println(MinNumber(list))
+	// list := []int{-40, 6, 9, 50}
+	// fmt.Println(MinNumber(list))
+	// fmt.Println(CountDigit(1000))
+	// fmt.Println(MergeArray([]int{1, 3, 2, 4}, []int{2, 5, 1, 8}))
+	// fmt.Println(Average([]int{1, 2}))
+	// fmt.Println(AreaRectangle(3, 7))
+	fmt.Println(CountCaractar("addddeecccsd", 'd'))
 }
 
 func FizzBuzz() {
@@ -48,4 +54,43 @@ func MinNumber(list []int) (int, error) {
 		}
 	}
 	return min, nil
+}
+
+func CountDigit(num int) int {
+	if num == 0 {
+		return 1
+	}
+	return int(math.Log10(float64(num))) + 1
+}
+
+func MergeArray(first, second []int) []int {
+	arr := make([]int, 0, len(first)+len(second))
+	arr = append(arr, first...)
+	arr = append(arr, second...)
+	return arr
+}
+
+func Average(list []int) (float64, error) {
+	if len(list) == 0 {
+		return 0, fmt.Errorf("リストに数値が入っていません")
+	}
+	sum := 0
+	for _, num := range list {
+		sum += num
+	}
+	return float64(sum) / float64(len(list)), nil
+}
+
+func AreaRectangle(width, height int) int {
+	return width * height
+}
+
+func CountCaractar(s string, char rune) int {
+	count := 0
+	for _, str := range s {
+		if str == char {
+			count++
+		}
+	}
+	return count
 }
