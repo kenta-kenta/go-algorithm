@@ -14,7 +14,8 @@ func main() {
 	// fmt.Println(MergeArray([]int{1, 3, 2, 4}, []int{2, 5, 1, 8}))
 	// fmt.Println(Average([]int{1, 2}))
 	// fmt.Println(AreaRectangle(3, 7))
-	fmt.Println(CountCaractar("addddeecccsd", 'd'))
+	// fmt.Println(CountCaractar("addddeecccsd", 'd'))
+	fmt.Println(IsOddArr([]int{1, 3, 6}))
 }
 
 func FizzBuzz() {
@@ -93,4 +94,16 @@ func CountCaractar(s string, char rune) int {
 		}
 	}
 	return count
+}
+
+func IsOddArr(arr []int) string {
+	sum := 0
+	for _, num := range arr {
+		sum += num
+	}
+	if sum%2 == 0 {
+		return "even"
+	} else {
+		return "odd"
+	}
 }
