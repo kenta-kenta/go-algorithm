@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"math"
+	"sort"
+	"strings"
 )
 
 func main() {
@@ -16,7 +18,8 @@ func main() {
 	// fmt.Println(AreaRectangle(3, 7))
 	// fmt.Println(CountCaractar("addddeecccsd", 'd'))
 	// fmt.Println(IsOddArr([]int{1, 3, 6}))
-	fmt.Println(GCM(30, 12))
+	// fmt.Println(GCM(30, 12))
+	fmt.Println(areAnagrams("abrtd", "tdrab"))
 }
 
 func FizzBuzz() {
@@ -114,4 +117,15 @@ func GCM(num1, num2 int) int {
 		return num1
 	}
 	return GCM(num2, num1%num2)
+}
+
+func areAnagrams(s1, s2 string) bool {
+	if len(s1) != len(s2) {
+		return false
+	}
+	s1Slice := strings.Split(s1, "")
+	s2Slice := strings.Split(s2, "")
+	sort.Strings(s1Slice)
+	sort.Strings(s2Slice)
+	return strings.Join(s1Slice, "") == strings.Join(s2Slice, "")
 }
