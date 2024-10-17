@@ -15,7 +15,8 @@ func main() {
 	// fmt.Println(Average([]int{1, 2}))
 	// fmt.Println(AreaRectangle(3, 7))
 	// fmt.Println(CountCaractar("addddeecccsd", 'd'))
-	fmt.Println(IsOddArr([]int{1, 3, 6}))
+	// fmt.Println(IsOddArr([]int{1, 3, 6}))
+	fmt.Println(GCM(30, 12))
 }
 
 func FizzBuzz() {
@@ -106,4 +107,11 @@ func IsOddArr(arr []int) string {
 	} else {
 		return "odd"
 	}
+}
+
+func GCM(num1, num2 int) int {
+	if num2 == 0 {
+		return num1
+	}
+	return GCM(num2, num1%num2)
 }
