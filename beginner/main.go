@@ -3,6 +3,9 @@ package main
 import (
 	"fmt"
 	"math"
+	"sort"
+	"strings"
+	"unicode"
 )
 
 func main() {
@@ -14,7 +17,11 @@ func main() {
 	// fmt.Println(MergeArray([]int{1, 3, 2, 4}, []int{2, 5, 1, 8}))
 	// fmt.Println(Average([]int{1, 2}))
 	// fmt.Println(AreaRectangle(3, 7))
-	fmt.Println(CountCaractar("addddeecccsd", 'd'))
+	// fmt.Println(CountCaractar("addddeecccsd", 'd'))
+	// fmt.Println(IsOddArr([]int{1, 3, 6}))
+	// fmt.Println(GCM(30, 12))
+	// fmt.Println(areAnagrams("abrtd", "tdrab"))
+	fmt.Println(Palindrome("a leela"))
 }
 
 func FizzBuzz() {
@@ -93,4 +100,49 @@ func CountCaractar(s string, char rune) int {
 		}
 	}
 	return count
+}
+
+func IsOddArr(arr []int) string {
+	sum := 0
+	for _, num := range arr {
+		sum += num
+	}
+	if sum%2 == 0 {
+		return "even"
+	} else {
+		return "odd"
+	}
+}
+
+func GCM(num1, num2 int) int {
+	if num2 == 0 {
+		return num1
+	}
+	return GCM(num2, num1%num2)
+}
+
+func areAnagrams(s1, s2 string) bool {
+	if len(s1) != len(s2) {
+		return false
+	}
+	s1Slice := strings.Split(s1, "")
+	s2Slice := strings.Split(s2, "")
+	sort.Strings(s1Slice)
+	sort.Strings(s2Slice)
+	return strings.Join(s1Slice, "") == strings.Join(s2Slice, "")
+}
+
+func Palindrome(s string) bool {
+	var filterd []rune
+	for _, r := range strings.ToLower(s) {
+		if unicode.IsLetter(r) || unicode.IsNumber(r) {
+			filterd = append(filterd, r)
+		}
+	}
+	for i, j := 0, len(filterd)-1; i < j; i, j = i+1, j-1 {
+		if filterd[i] != filterd[j] {
+			return false
+		}
+	}
+	return true
 }
