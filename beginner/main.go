@@ -5,6 +5,7 @@ import (
 	"math"
 	"sort"
 	"strings"
+	"unicode"
 )
 
 func main() {
@@ -19,7 +20,8 @@ func main() {
 	// fmt.Println(CountCaractar("addddeecccsd", 'd'))
 	// fmt.Println(IsOddArr([]int{1, 3, 6}))
 	// fmt.Println(GCM(30, 12))
-	fmt.Println(areAnagrams("abrtd", "tdrab"))
+	// fmt.Println(areAnagrams("abrtd", "tdrab"))
+	fmt.Println(Palindrome("a leela"))
 }
 
 func FizzBuzz() {
@@ -128,4 +130,19 @@ func areAnagrams(s1, s2 string) bool {
 	sort.Strings(s1Slice)
 	sort.Strings(s2Slice)
 	return strings.Join(s1Slice, "") == strings.Join(s2Slice, "")
+}
+
+func Palindrome(s string) bool {
+	var filterd []rune
+	for _, r := range strings.ToLower(s) {
+		if unicode.IsLetter(r) || unicode.IsNumber(r) {
+			filterd = append(filterd, r)
+		}
+	}
+	for i, j := 0, len(filterd)-1; i < j; i, j = i+1, j-1 {
+		if filterd[i] != filterd[j] {
+			return false
+		}
+	}
+	return true
 }
