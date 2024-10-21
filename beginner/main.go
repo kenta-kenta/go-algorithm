@@ -21,7 +21,8 @@ func main() {
 	// fmt.Println(IsOddArr([]int{1, 3, 6}))
 	// fmt.Println(GCM(30, 12))
 	// fmt.Println(areAnagrams("abrtd", "tdrab"))
-	fmt.Println(Palindrome("a leela"))
+	// fmt.Println(Palindrome("a leela"))
+	fmt.Println(euclideanDistance(1, 1, 4, 5))
 }
 
 func FizzBuzz() {
@@ -145,4 +146,14 @@ func Palindrome(s string) bool {
 		}
 	}
 	return true
+}
+
+func euclideanDistance(x1, y1, x2, y2 float64) float64 {
+	dx := x1 - x2
+	dy := y1 - y2
+	return math.Pow(math.Pow(dx, 2)+math.Pow(dy, 2), 0.5)
+}
+
+func UpperToLower(str string) string {
+	return strings.ToLower(str)
 }
