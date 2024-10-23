@@ -22,7 +22,8 @@ func main() {
 	// fmt.Println(GCM(30, 12))
 	// fmt.Println(areAnagrams("abrtd", "tdrab"))
 	// fmt.Println(Palindrome("a leela"))
-	fmt.Println(euclideanDistance(1, 1, 4, 5))
+	// fmt.Println(euclideanDistance(1, 1, 4, 5))
+	fmt.Println(IsPrime(2))
 }
 
 func FizzBuzz() {
@@ -156,4 +157,18 @@ func euclideanDistance(x1, y1, x2, y2 float64) float64 {
 
 func UpperToLower(str string) string {
 	return strings.ToLower(str)
+}
+
+func IsPrime(num int) bool {
+	if num < 2 {
+		return false
+	}
+
+	for i := 2; i < num; i++ {
+		if num%i == 0 {
+			return false
+		}
+	}
+
+	return true
 }
